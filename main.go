@@ -12,6 +12,8 @@ import (
 func SetupRouter(repo repo.PostsRepo) *gin.Engine {
 	r := gin.Default()
 
+	r.Use(config.Cors)
+
 	rest.PostsRoutes(r, repo)
 
 	return r
