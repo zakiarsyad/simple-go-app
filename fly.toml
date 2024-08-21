@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for back-end-wild-grass-8451 on 2024-08-21T20:19:37+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'back-end-wild-grass-8451'
+primary_region = 'sin'
+
+[build]
+  [build.args]
+    GO_VERSION = '1.22.4'
+
+[env]
+  PORT = '8080'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  size = 'shared-cpu-1x'
